@@ -11,12 +11,24 @@ dotenv.config();
 connectDB(); // Connect to MongoDB
 
 const app = express();
-app.use(cors());
+
+// --- SECURE PRODUCTION CORS ---
+const corsOptions = {
+    origin: [
+        'http://localhost:5173', 
+        'https://kavindu-travels.vercel.app', // <-- CHANGE THIS to your exact Vercel URL
+        // 'https://www.yourcustomdomain.com' // Uncomment later when you buy a domain
+    ],
+    credentials: true,
+};
+app.use(cors(corsOptions));
+
 app.use(express.json()); // Allows us to accept JSON data in the body
 
 app.get('/', (req, res) => {
   res.send('API is running smoothly...');
 });
+
 app.use('/api/tours', tourRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/planner', plannerRoutes);
