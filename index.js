@@ -16,7 +16,7 @@ const app = express();
 const corsOptions = {
     origin: [
         'http://localhost:5173', 
-        'https://twbackend-6i00.onrender.com', // <-- CHANGE THIS to your exact Vercel URL
+        'https://tw-frontend-ten.vercel.app', // <-- YOUR EXACT VERCEL URL IS NOW HERE!
         // 'https://www.yourcustomdomain.com' // Uncomment later when you buy a domain
     ],
     credentials: true,
