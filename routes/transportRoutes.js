@@ -10,8 +10,9 @@ router.post('/book', async (req, res) => {
     // 1. Added explicit host, port, and secure settings to fix Render timeouts
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, 
+      port: 587,
+      secure: false, // Must be false for port 587
+      requireTLS: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
