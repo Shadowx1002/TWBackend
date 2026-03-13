@@ -42,7 +42,7 @@ router.post('/book', async (req, res) => {
     res.status(200).json({ message: "Sent" });
     
   } catch (error) {
-    console.error("Email notification failed:", error.message);
+    console.error("Email notification failed:", error);
     
     // 3. CRASH-PROOF FIX: We send a 200 status EVEN IF the email times out.
     // This ensures the frontend button doesn't freeze and the user sees the success screen.
