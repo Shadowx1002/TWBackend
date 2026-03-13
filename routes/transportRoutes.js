@@ -32,8 +32,14 @@ router.post('/book', async (req, res) => {
   try {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ message: "Sent" });
+    console.log("Email notification sent!");
+    
+    
   } catch (error) {
     res.status(500).json({ message: "Failed" });
+    console.error("Email notification failed:", error.message);
+
+    
   }
 });
 
